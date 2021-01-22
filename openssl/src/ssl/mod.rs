@@ -3422,6 +3422,11 @@ impl<S> MidHandshakeSslStream<S> {
     pub fn into_error(self) -> Error {
         self.error
     }
+
+    /// Consumes `self`, returning the underlying stream
+    pub fn into_stream(self) -> SslStream<S> {
+        self.stream
+    }
 }
 
 impl<S> MidHandshakeSslStream<S>
